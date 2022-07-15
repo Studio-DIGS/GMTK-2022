@@ -15,7 +15,14 @@ public class PlayerIdleState : PlayerBaseState
     {
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetButton("Jump"))
         {
-            _player.UpdateMovement(_player.GetCurrentState());
+            _player.UpdateMovement();
+        }
+    }
+    
+    public override void LateUpdateState(PlayerStateManager _player) 
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetButton("Jump"))
+        {
             _player.SwitchState(_player.MoveState);
         }
     }
