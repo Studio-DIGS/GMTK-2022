@@ -13,6 +13,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerMoveState MoveState = new PlayerMoveState();
     public PlayerJumpState JumpState = new PlayerJumpState();
     public PlayerFallState FallState = new PlayerFallState();
+    public PlayerChargeState ChargeState = new PlayerChargeState();
+    public PlayerThrowState ThrowState = new PlayerThrowState();
 
     //Player Stats
     public float maxSpeed = 18f;
@@ -85,7 +87,7 @@ public class PlayerStateManager : MonoBehaviour
 
     //Getter Functions
     public PlayerBaseState GetCurrentState() { return currentState; }
-    public Vector3 GetPlayerVelocity() {return playerVelocity; }
+    public Vector3 GetPlayerVelocity() { return playerVelocity; }
     public Vector3 GetHorizontalMovement() { return horizontalMovement; }
     public float GetVerticalMovement() { return verticalMovement; }
 }
