@@ -44,10 +44,14 @@ public class PlayerStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState.UpdateState(this);
+    }
+
+    private void LateUpdate() 
+    {
+        currentState.LateUpdateState(this);
     }
 
     public void SwitchState(PlayerBaseState _player)
@@ -56,7 +60,7 @@ public class PlayerStateManager : MonoBehaviour
         _player.EnterState(this);
     }
 
-    public void UpdateMovement(PlayerBaseState _player)
+    public void UpdateMovement()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         orientation = Mathf.Clamp(orientation + (horizontalInput * 2), -1, 1);
@@ -78,8 +82,8 @@ public class PlayerStateManager : MonoBehaviour
         verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
 
         playerVelocity = new Vector3(horizontalMovement.x, verticalMovement, horizontalMovement.z);
-
         controller.Move(playerVelocity * Time.deltaTime);
+        return;
 
     }
 
