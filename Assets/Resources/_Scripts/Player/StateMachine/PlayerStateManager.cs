@@ -23,7 +23,6 @@ public class PlayerStateManager : MonoBehaviour
     public float terminalVelocity = 45f;
 
     //Player Movement
-    [HideInInspector]
     public float horizontalInput;
     public float orientation = 1f;
     public float verticalMovement;
