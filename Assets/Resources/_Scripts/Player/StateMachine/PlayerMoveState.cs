@@ -9,9 +9,6 @@ public class PlayerMoveState : PlayerBaseState
         //Debug.Log("Move State Entered");
         _player.animator.SetBool("isRunning", true);
 
-        // creates dust trail upon entering state
-        _player.CreateDustTrail();
-
         return;
     }
 

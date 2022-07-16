@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
-    // Player Components
+    //Player Components
     public Camera playerCamera;
     public Animator animator;
+    [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
     public Score score = new Score();
@@ -52,18 +53,6 @@ public class PlayerStateManager : MonoBehaviour
     public bool hasCoin = true;
     [HideInInspector]
     public float chargeScale = 1f;
-
-    // Player Particles
-    public ParticleSystem dustTrail;
-    public void CreateDustTrail()
-    {
-        dustTrail.Play();
-    }
-    public void DestroyDustTrail()
-    {
-        dustTrail.Stop();
-    }
-
 
     void Awake()
     {
