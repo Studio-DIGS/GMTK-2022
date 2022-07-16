@@ -18,7 +18,7 @@ public class PlayerIdleState : PlayerBaseState
     
     public override void LateUpdateState(PlayerStateManager _player) 
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && _player.hasCoin)
         {
             _player.SwitchState(_player.ChargeState);
         }

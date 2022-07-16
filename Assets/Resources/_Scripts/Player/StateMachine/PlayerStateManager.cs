@@ -5,9 +5,11 @@ using UnityEngine;
 public class PlayerStateManager : MonoBehaviour
 {
     //Player Components
+    [HideInInspector]
     public CharacterController controller;
 
     //Player States
+    [HideInInspector]
     PlayerBaseState currentState;
     public PlayerIdleState IdleState = new PlayerIdleState();
     public PlayerMoveState MoveState = new PlayerMoveState();
@@ -16,7 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerChargeState ChargeState = new PlayerChargeState();
     public PlayerThrowState ThrowState = new PlayerThrowState();
 
-    //Player Stats
+    //Player Movement Stats
     public float maxSpeed = 18f;
     public float jumpHeight = 30f;
     public float gravity = 1.5f;
@@ -24,19 +26,33 @@ public class PlayerStateManager : MonoBehaviour
     public float airAcceleration =7f;
     public float terminalVelocity = 45f;
 
-    //Player Movement
-    public float horizontalInput;
-    public float orientation = 1f;
-    public float verticalMovement;
-    public float playerAcceleration;
-    public Vector3 horizontalMovement;
-    public Vector3 direction;
-    public Vector3 playerVelocity;
+    //Player Movement Vars
+    private float horizontalInput;
+    private float orientation = 1f;
+    private float verticalMovement;
+    private float playerAcceleration;
+    private Vector3 horizontalMovement;
+    private Vector3 direction;
+    private Vector3 playerVelocity;
 
+    //Player Throw Stats
+    public float initialChargeScale = 1f;
+    public float initialForce = 150f;
+    public float maxChargeTime = 1.5f;
+    public float maxChargeScale = 2.5f;
+    
+    //Player Throw Vars
+    [HideInInspector]
+    public GameObject coinPrefab;
+    [HideInInspector]
+    public bool hasCoin = true;
+    [HideInInspector]
+    public float chargeScale = 1f;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        coinPrefab = (GameObject) Resources.Load("Prefabs/Coin");
     }
 
     void Start()
@@ -62,9 +78,14 @@ public class PlayerStateManager : MonoBehaviour
         _player.EnterState(this);
     }
 
-    public void UpdateMovement(bool modInput)
+    private void OnTriggerEnter(Collider other) 
     {
-        if (modInput)
+        currentState.OnTriggerEnterState(this, other);
+    }
+
+    public void UpdateMovement(bool _canInput)
+    {
+        if (_canInput)
         {
             UpdateInput();
         }
@@ -101,7 +122,23 @@ public class PlayerStateManager : MonoBehaviour
         }        
     }
 
+    public void FireCoin()
+    {
+        if (coinPrefab != null)
+        {
+            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0,1,orientation), this.transform.rotation);
+            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1/chargeScale * chargeScale, orientation) * initialForce);
+        } 
+        else
+        {
+            Debug.LogError("Coin Not Instantiated");
+        }
+    }
 
+    public void GetCoin(GameObject coin)
+    {
+        Destroy(coin);
+    }
 
     //Getter Functions
     public PlayerBaseState GetCurrentState() { return currentState; }

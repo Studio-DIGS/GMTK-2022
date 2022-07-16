@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerThrowState : PlayerBaseState
 {
-    private float animationTimer = 1f;
+    private float animationTimer = 0.5f;
     public override void EnterState(PlayerStateManager _player)
     {
         Debug.Log("Throw State Entered");
@@ -14,7 +14,11 @@ public class PlayerThrowState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager _player)
     {
-        return;
+        if(_player.hasCoin)
+        {
+            _player.FireCoin();
+        }
+        _player.hasCoin = false;
     }
 
     public override void LateUpdateState(PlayerStateManager _player)
@@ -22,7 +26,7 @@ public class PlayerThrowState : PlayerBaseState
         if (animationTimer <= 0f) 
         {
             _player.SwitchState(_player.MoveState);
-            animationTimer = 1f;
+            animationTimer = 0.5f;
         }
         else
         {

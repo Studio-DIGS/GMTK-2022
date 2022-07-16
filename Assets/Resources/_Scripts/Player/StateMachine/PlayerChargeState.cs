@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class PlayerChargeState : PlayerBaseState
 {
+    private  float currentChargeTime = 0.0f;
+
     public override void EnterState(PlayerStateManager _player)
     {
         Debug.Log("Charge State Entered");
+        _player.chargeScale = _player.initialChargeScale;
+        currentChargeTime = 0.0f;
 
         return;
     }
 
     public override void UpdateState(PlayerStateManager _player)
     {
-        _player.UpdateMovement(false);
+        if (_player.controller.velocity != Vector3.zero)
+        {
+            _player.UpdateMovement(false);
+        }
+        currentChargeTime += Time.deltaTime;
+        _player.chargeScale = Mathf.Lerp(_player.initialChargeScale, _player.maxChargeScale, Mathf.Clamp(currentChargeTime, 0.0f, _player.maxChargeTime));
+
     }
 
     public override void LateUpdateState(PlayerStateManager _player)
@@ -23,4 +33,5 @@ public class PlayerChargeState : PlayerBaseState
             _player.SwitchState(_player.ThrowState);
         }
     }
+
 }
