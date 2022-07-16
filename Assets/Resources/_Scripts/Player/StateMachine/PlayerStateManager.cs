@@ -10,7 +10,7 @@ public class PlayerStateManager : MonoBehaviour
 
     //Player States
     [HideInInspector]
-    PlayerBaseState currentState;
+    private PlayerBaseState currentState;
     public PlayerIdleState IdleState = new PlayerIdleState();
     public PlayerMoveState MoveState = new PlayerMoveState();
     public PlayerJumpState JumpState = new PlayerJumpState();
@@ -126,7 +126,8 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (coinPrefab != null)
         {
-            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0,1,orientation), this.transform.rotation);
+            Debug.Log(orientation);
+            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0, 1, orientation), this.transform.rotation);
             coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1/chargeScale * chargeScale, orientation) * initialForce);
         } 
         else
