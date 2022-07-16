@@ -13,6 +13,14 @@ public class PlayerChargeState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager _player)
     {
+        _player.UpdateMovement(0);
+    }
 
+    public override void LateUpdateState(PlayerStateManager _player)
+    {
+        if (!Input.GetButton("Fire1"))
+        {
+            _player.SwitchState(_player.ThrowState);
+        }
     }
 }

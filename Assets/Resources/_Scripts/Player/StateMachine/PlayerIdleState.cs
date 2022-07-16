@@ -13,14 +13,16 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager _player)
     {
-        if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetButton("Jump"))
-        {
-            _player.UpdateMovement();
-        }
+        _player.UpdateMovement(0);
     }
     
     public override void LateUpdateState(PlayerStateManager _player) 
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            _player.SwitchState(_player.ChargeState);
+        }
+        
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetButton("Jump"))
         {
             _player.SwitchState(_player.MoveState);

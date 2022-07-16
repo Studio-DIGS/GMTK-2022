@@ -62,12 +62,24 @@ public class PlayerStateManager : MonoBehaviour
         _player.EnterState(this);
     }
 
-    public void UpdateMovement()
+    public void UpdateMovement(int modInput)
+    {
+        UpdateInput();
+        direction = (transform.forward * horizontalInput * modInput);
+
+        horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
+        verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
+
+        playerVelocity = new Vector3(horizontalMovement.x, verticalMovement, horizontalMovement.z);
+        controller.Move(playerVelocity * Time.deltaTime);
+        return;
+    }
+
+    public void UpdateInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         orientation = Mathf.Clamp(orientation + (horizontalInput * 2), -1, 1);
 
-        direction = (transform.forward * horizontalInput);
         if (controller.isGrounded)
         {
             verticalMovement = -0.5f;
@@ -78,16 +90,10 @@ public class PlayerStateManager : MonoBehaviour
                 verticalMovement = jumpHeight;
                 playerAcceleration = airAcceleration;
             }
-        }
-
-        horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
-        verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
-
-        playerVelocity = new Vector3(horizontalMovement.x, verticalMovement, horizontalMovement.z);
-        controller.Move(playerVelocity * Time.deltaTime);
-        return;
-
+        }        
     }
+
+
 
     //Getter Functions
     public PlayerBaseState GetCurrentState() { return currentState; }
