@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStateManager : MonoBehaviour
 {
     //Player Components
+    public Camera playerCamera;
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
@@ -42,6 +43,7 @@ public class PlayerStateManager : MonoBehaviour
     public float initialForce = 150f;
     public float maxChargeTime = 1.5f;
     public float maxChargeScale = 2.5f;
+    public float maxMouseMagnitude = 5f;
     
     //Player Throw Vars
     [HideInInspector]
@@ -131,9 +133,17 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (coinPrefab != null)
         {
-            Vector3 displacement = new Vector3(0, 1, orientation);
+            Vector3 mouseToPlayer = (playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, playerCamera.transform.position.x))
+                                    - transform.position);
+            mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
+            if (mouseToPlayer.magnitude >= maxMouseMagnitude)
+            {
+            mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;
+            }
+
+            Vector3 displacement = new Vector3(0, 1, Mathf.Sign(mouseToPlayer.z));
             GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
-            // coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale, orientation) * initialForce);
+            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
         } 
         else
         {
