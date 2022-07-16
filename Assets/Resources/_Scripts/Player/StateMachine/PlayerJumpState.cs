@@ -9,6 +9,9 @@ public class PlayerJumpState : PlayerBaseState
         //Debug.Log("Jump State Entered");
         _player.animator.SetBool("isJumping", true);
 
+        // destroys any dust trail from previous states
+        _player.DestroyDustTrail();
+
         return;
     }
     public override void UpdateState(PlayerStateManager _player)
