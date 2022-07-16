@@ -9,6 +9,7 @@ public class PlayerChargeState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Charge State Entered");
+        _player.animator.SetBool("isCharging", true);
         _player.chargeScale = _player.initialChargeScale;
         currentChargeTime = 0.0f;
         _player.drawTrajectory.ShowLine();
@@ -25,7 +26,7 @@ public class PlayerChargeState : PlayerBaseState
         
         Vector3 mouseToPlayer = (_player.playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _player.playerCamera.transform.position.x))
                                  - _player.transform.position);
-        mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
+        mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, _player.maxMouseMagnitude);
         if (mouseToPlayer.magnitude >= _player.maxMouseMagnitude)
         {
             mouseToPlayer *= _player.maxMouseMagnitude / mouseToPlayer.magnitude;
@@ -49,4 +50,8 @@ public class PlayerChargeState : PlayerBaseState
         }
     }
 
+    public override void ExitState(PlayerStateManager _player)
+    {
+        _player.animator.SetBool("isCharging", false);
+    }
 }

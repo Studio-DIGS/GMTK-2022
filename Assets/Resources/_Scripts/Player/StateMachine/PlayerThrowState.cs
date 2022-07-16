@@ -8,6 +8,7 @@ public class PlayerThrowState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Throw State Entered");
+        _player.animator.SetBool("isThrowing", true);
         _player.drawTrajectory.HideLine();
         return;
     }
@@ -32,5 +33,10 @@ public class PlayerThrowState : PlayerBaseState
         {
             animationTimer -= Time.deltaTime;
         }
+    }
+
+    public override void ExitState(PlayerStateManager _player)
+    {
+        _player.animator.SetBool("isThrowing", false);
     }
 }

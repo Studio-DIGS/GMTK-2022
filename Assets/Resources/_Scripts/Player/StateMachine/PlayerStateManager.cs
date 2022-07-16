@@ -6,6 +6,7 @@ public class PlayerStateManager : MonoBehaviour
 {
     //Player Components
     public Camera playerCamera;
+    public Animator animator;
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
@@ -80,6 +81,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerBaseState _player)
     {
+        currentState.ExitState(this);
         currentState = _player;
         _player.EnterState(this);
     }

@@ -7,6 +7,7 @@ public class PlayerMoveState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Move State Entered");
+        _player.animator.SetBool("isRunning", true);
 
         return;
     }
@@ -39,5 +40,10 @@ public class PlayerMoveState : PlayerBaseState
         }
         
         return;
+    }
+
+    public override void ExitState(PlayerStateManager _player)
+    {
+        _player.animator.SetBool("isRunning", false);
     }
 }
