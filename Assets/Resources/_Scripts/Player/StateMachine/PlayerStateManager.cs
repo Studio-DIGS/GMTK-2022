@@ -127,7 +127,7 @@ public class PlayerStateManager : MonoBehaviour
         if (coinPrefab != null)
         {
             Debug.Log(orientation);
-            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0, 1, orientation), this.transform.rotation);
+            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0, 1, orientation), coinPrefab.transform.rotation);
             coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1/chargeScale * chargeScale, orientation) * initialForce);
         } 
         else
