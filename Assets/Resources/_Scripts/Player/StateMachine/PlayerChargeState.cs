@@ -37,7 +37,7 @@ public class PlayerChargeState : PlayerBaseState
         Vector3 expectedForce = new Vector3(0, (1/_player.maxChargeScale) * _player.chargeScale * mouseToPlayer.y, mouseToPlayer.z) * _player.initialForce;
         Vector3 expectedDisplacement = new Vector3(0, 1, Mathf.Sign(mouseToPlayer.z));
 
-        // _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), _player.transform.position + expectedDisplacement);
+        _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), _player.transform.position + expectedDisplacement);
 
     }
 
