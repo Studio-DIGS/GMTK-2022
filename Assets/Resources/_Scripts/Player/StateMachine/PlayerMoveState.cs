@@ -6,7 +6,7 @@ public class PlayerMoveState : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager _player)
     {
-        Debug.Log("Move State Entered");
+        //Debug.Log("Move State Entered");
 
         return;
     }
