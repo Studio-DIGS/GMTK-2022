@@ -7,6 +7,7 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Jump State Entered");
+        _player.animator.SetBool("isJumping", true);
 
         return;
     }
@@ -27,5 +28,10 @@ public class PlayerJumpState : PlayerBaseState
         {
             _player.SwitchState(_player.FallState);
         }
+    }
+
+    public override void ExitState(PlayerStateManager _player)
+    {
+        _player.animator.SetBool("isJumping", false);
     }
 }

@@ -6,6 +6,7 @@ public class PlayerStateManager : MonoBehaviour
 {
     //Player Components
     public Camera playerCamera;
+    public Animator animator;
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
@@ -53,6 +54,17 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector]
     public float chargeScale = 1f;
 
+    // Player Particles
+    public ParticleSystem dustTrail;
+    public void CreateDustTrail()
+    {
+        dustTrail.Play();
+    }
+    public void DestroyDustTrail()
+    {
+        dustTrail.Stop();
+    }
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -80,6 +92,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerBaseState _player)
     {
+        currentState.ExitState(this);
         currentState = _player;
         _player.EnterState(this);
     }

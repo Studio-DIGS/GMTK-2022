@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Idle State Entered");
-
+        _player.animator.SetBool("isIdle", true);
         return;
     }
 
@@ -27,5 +27,10 @@ public class PlayerIdleState : PlayerBaseState
         {
             _player.SwitchState(_player.MoveState);
         }
+    }
+
+    public override void ExitState(PlayerStateManager _player)
+    {
+        _player.animator.SetBool("isIdle", false);
     }
 }
