@@ -7,6 +7,7 @@ public class PlayerStateManager : MonoBehaviour
     //Player Components
     [HideInInspector]
     public CharacterController controller;
+    public DrawTrajectory drawTrajectory;
 
     //Player States
     [HideInInspector]
@@ -52,6 +53,7 @@ public class PlayerStateManager : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        drawTrajectory = GetComponent<DrawTrajectory>();
         coinPrefab = (GameObject) Resources.Load("Prefabs/Coin");
     }
 
@@ -60,6 +62,7 @@ public class PlayerStateManager : MonoBehaviour
         currentState = MoveState;
 
         currentState.EnterState(this);
+        drawTrajectory.HideLine();
     }
 
     void Update()
@@ -126,8 +129,9 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (coinPrefab != null)
         {
-            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + new Vector3(0, 1, orientation), coinPrefab.transform.rotation);
-            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, 1/chargeScale * chargeScale, orientation) * initialForce);
+            Vector3 displacement = new Vector3(0, 1, orientation);
+            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
+            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale, orientation) * initialForce);
         } 
         else
         {
@@ -145,4 +149,5 @@ public class PlayerStateManager : MonoBehaviour
     public Vector3 GetPlayerVelocity() { return playerVelocity; }
     public Vector3 GetHorizontalMovement() { return horizontalMovement; }
     public float GetVerticalMovement() { return verticalMovement; }
+    public float GetOrientation() { return orientation; }
 }

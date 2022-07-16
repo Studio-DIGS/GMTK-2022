@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 899399708390876877}
   - component: {fileID: 899399708390876876}
   - component: {fileID: 899399708390876873}
+  - component: {fileID: 4412793925484398476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -93,6 +94,20 @@ MonoBehaviour:
   coinPrefab: {fileID: 0}
   hasCoin: 1
   chargeScale: 1
+--- !u!114 &4412793925484398476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899399708390876879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb5d8efb5486d74f84642ebe7545675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
+  lineSegmentCount: 20
 --- !u!1 &4086129504140307548
 GameObject:
   m_ObjectHideFlags: 0

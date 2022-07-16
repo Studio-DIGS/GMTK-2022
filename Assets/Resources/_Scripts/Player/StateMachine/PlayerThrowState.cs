@@ -8,7 +8,7 @@ public class PlayerThrowState : PlayerBaseState
     public override void EnterState(PlayerStateManager _player)
     {
         //Debug.Log("Throw State Entered");
-
+        _player.drawTrajectory.HideLine();
         return;
     }
 
