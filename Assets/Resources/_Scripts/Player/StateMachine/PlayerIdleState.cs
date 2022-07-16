@@ -13,7 +13,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager _player)
     {
-        _player.UpdateMovement(0);
+        _player.UpdateMovement(false);
     }
     
     public override void LateUpdateState(PlayerStateManager _player) 

@@ -62,10 +62,18 @@ public class PlayerStateManager : MonoBehaviour
         _player.EnterState(this);
     }
 
-    public void UpdateMovement(int modInput)
+    public void UpdateMovement(bool modInput)
     {
-        UpdateInput();
-        direction = (transform.forward * horizontalInput * modInput);
+        if (modInput)
+        {
+            UpdateInput();
+        }
+        else
+        {
+            horizontalInput = 0f;
+        }
+
+        direction = (transform.forward * horizontalInput);
 
         horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
         verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
