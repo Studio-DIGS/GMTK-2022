@@ -8,6 +8,9 @@ public class PlayerIdleState : PlayerBaseState
     {
         Debug.Log("Idle State Entered");
 
+        // destroys any dust trail from previous states
+        _player.DestroyDustTrail();
+
         return;
     }
 

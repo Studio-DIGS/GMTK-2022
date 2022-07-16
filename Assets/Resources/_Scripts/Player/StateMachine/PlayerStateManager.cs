@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
-    //Player Components
+    // Player Components
     public CharacterController controller;
 
-    //Player States
+    // Player States
     PlayerBaseState currentState;
     public PlayerIdleState IdleState = new PlayerIdleState();
     public PlayerMoveState MoveState = new PlayerMoveState();
@@ -16,7 +16,7 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerChargeState ChargeState = new PlayerChargeState();
     public PlayerThrowState ThrowState = new PlayerThrowState();
 
-    //Player Stats
+    // Player Stats
     public float maxSpeed = 18f;
     public float jumpHeight = 30f;
     public float gravity = 1.5f;
@@ -24,7 +24,7 @@ public class PlayerStateManager : MonoBehaviour
     public float airAcceleration =7f;
     public float terminalVelocity = 45f;
 
-    //Player Movement
+    // Player Movement
     public float horizontalInput;
     public float orientation = 1f;
     public float verticalMovement;
@@ -32,6 +32,17 @@ public class PlayerStateManager : MonoBehaviour
     public Vector3 horizontalMovement;
     public Vector3 direction;
     public Vector3 playerVelocity;
+
+    // Player Particles
+    public ParticleSystem dustTrail;
+    public void CreateDustTrail()
+    {
+        dustTrail.Play();
+    }
+    public void DestroyDustTrail()
+    {
+        dustTrail.Stop();
+    }
 
 
     void Awake()

@@ -8,6 +8,9 @@ public class PlayerMoveState : PlayerBaseState
     {
         Debug.Log("Move State Entered");
 
+        // creates dust trail upon entering state
+        _player.CreateDustTrail();
+
         return;
     }
 
