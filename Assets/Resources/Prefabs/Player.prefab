@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  drawTrajectory: {fileID: 0}
   maxSpeed: 18
   jumpHeight: 30
   gravity: 1.5

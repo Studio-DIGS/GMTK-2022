@@ -8,6 +8,7 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
+    public Score score = new Score();
 
     //Player States
     [HideInInspector]
@@ -83,6 +84,7 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+        Debug.Log(score.GetPoints());
         currentState.OnTriggerEnterState(this, other);
     }
 
@@ -101,8 +103,8 @@ public class PlayerStateManager : MonoBehaviour
 
         horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
         verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
-
-        playerVelocity = new Vector3(horizontalMovement.x, verticalMovement, horizontalMovement.z);
+        
+        playerVelocity = new Vector3(0, verticalMovement, horizontalMovement.z);
         controller.Move(playerVelocity * Time.deltaTime);
         return;
     }

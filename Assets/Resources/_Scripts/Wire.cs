@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
+    //Wire Vars
     private LevelManager levelManager;
-
     private Material hitWireMaterial;
+
+    //Wire Properties
+    [SerializeField]
+    private int value = 1000;
+    
+    [HideInInspector]
     public bool hasBeenHit = false;
 
     private void Awake() 
@@ -17,8 +23,9 @@ public class Wire : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "Coin" && !hasBeenHit)
         {
+            GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
             this.GetComponent<MeshRenderer>().material = hitWireMaterial;
             hasBeenHit = true;
             levelManager.CheckForLevelCompleted();
