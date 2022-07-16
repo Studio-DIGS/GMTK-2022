@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class CoinPhysics : MonoBehaviour
 {
+
     private Rigidbody rigidBody;
 
     private void Awake() 
     {
         rigidBody = GetComponent<Rigidbody>();
     }
-
+    
+    
+    private void FixedUpdate()
+    {
+        
+    }
 }
