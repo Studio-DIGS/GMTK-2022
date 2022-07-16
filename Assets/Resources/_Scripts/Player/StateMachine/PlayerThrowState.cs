@@ -18,11 +18,6 @@ public class PlayerThrowState : PlayerBaseState
 
     public override void LateUpdateState(PlayerStateManager _player)
     {
-        return;
-    }
-
-    public override void LateUpdateState(PlayerStateManager _player)
-    {
         _player.SwitchState(_player.MoveState);
     }
 }
