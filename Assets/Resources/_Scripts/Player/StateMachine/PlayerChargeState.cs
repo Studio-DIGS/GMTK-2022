@@ -25,10 +25,10 @@ public class PlayerChargeState : PlayerBaseState
         currentChargeTime += Time.deltaTime;
         _player.chargeScale = Mathf.Lerp(_player.initialChargeScale, _player.maxChargeScale, Mathf.Clamp(currentChargeTime, 0.0f, _player.maxChargeTime));
 
-        Vector3 expectedForce = new Vector3(0, (1/_player.maxChargeScale) * _player.chargeScale, _player.GetOrientation()) * _player.initialForce;
-        Vector3 expectedDisplacement = new Vector3(0, 1, _player.GetOrientation());
+        // Vector3 expectedForce = new Vector3(0, (1/_player.maxChargeScale) * _player.chargeScale, _player.GetOrientation()) * _player.initialForce;
+        // Vector3 expectedDisplacement = new Vector3(0, 1, _player.GetOrientation());
 
-        _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), _player.transform.position + expectedDisplacement);
+        // _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), _player.transform.position + expectedDisplacement);
 
     }
 

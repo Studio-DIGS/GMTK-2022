@@ -133,7 +133,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             Vector3 displacement = new Vector3(0, 1, orientation);
             GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
-            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale, orientation) * initialForce);
+            // coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale, orientation) * initialForce);
         } 
         else
         {
