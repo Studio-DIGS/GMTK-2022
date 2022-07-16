@@ -8,7 +8,7 @@ public class PlayerChargeState : PlayerBaseState
 
     public override void EnterState(PlayerStateManager _player)
     {
-        Debug.Log("Charge State Entered");
+        //Debug.Log("Charge State Entered");
         _player.chargeScale = _player.initialChargeScale;
         currentChargeTime = 0.0f;
 

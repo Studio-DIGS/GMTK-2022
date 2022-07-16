@@ -7,7 +7,7 @@ public class PlayerThrowState : PlayerBaseState
     private float animationTimer = 0.5f;
     public override void EnterState(PlayerStateManager _player)
     {
-        Debug.Log("Throw State Entered");
+        //Debug.Log("Throw State Entered");
 
         return;
     }
