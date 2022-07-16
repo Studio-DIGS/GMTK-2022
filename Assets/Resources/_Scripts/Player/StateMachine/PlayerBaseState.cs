@@ -7,11 +7,11 @@ public abstract class PlayerBaseState
     public abstract void LateUpdateState(PlayerStateManager _player);
     public void OnTriggerEnterState(PlayerStateManager _player, Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == _player.coinPrefab.tag)
+        Debug.Log(other.gameObject.CompareTag(_player.coinPrefab.tag));
+        if (other.gameObject.CompareTag(_player.coinPrefab.tag))
         {
             _player.hasCoin = true;
-            _player.GetCoin(other.gameObject);
+            _player.GetCoin(other.transform.parent.gameObject);
         }
     }
 }
