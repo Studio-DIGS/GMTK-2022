@@ -54,6 +54,17 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector]
     public float chargeScale = 1f;
 
+    // Player Particles
+    public ParticleSystem dustTrail;
+    public void CreateDustTrail()
+    {
+        dustTrail.Play();
+    }
+    public void DestroyDustTrail()
+    {
+        dustTrail.Stop();
+    }
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
