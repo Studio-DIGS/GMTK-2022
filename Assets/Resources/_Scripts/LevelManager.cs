@@ -20,6 +20,7 @@ public class LevelManager : MonoBehaviour
     private PlayerVolume playerVolume;
 
     private string mainMenu = "MainMenu";
+    private string victoryScreen = "WinScreen";
     private object elseif;
 
     public static event Action<int> StopSlot;
@@ -92,5 +93,9 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Going To: " + mainMenu);
         SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+    }
+    public void ToWinScreen()
+    {
+        SceneManager.LoadScene(victoryScreen, LoadSceneMode.Single);
     }
 }

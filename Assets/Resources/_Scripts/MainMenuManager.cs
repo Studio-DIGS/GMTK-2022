@@ -33,4 +33,8 @@ public class MainMenuManager : MonoBehaviour
         backgroundMusic.volume = _volume;
         playerVolume.UpdatePrefs(_volume);
     }
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
