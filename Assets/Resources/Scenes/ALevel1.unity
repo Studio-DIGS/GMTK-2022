@@ -1644,6 +1644,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamblerMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 6944656104360116776, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa89dde1b0b37fd87adc6fcd826f511e, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa89dde1b0b37fd87adc6fcd826f511e, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aa89dde1b0b37fd87adc6fcd826f511e, type: 2}
     - target: {fileID: 8280583433300697219, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.02382
