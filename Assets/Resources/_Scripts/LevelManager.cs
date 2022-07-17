@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             {
-            RestartLevel(); 
+                RestartLevel(); 
             } 
     }
 
@@ -78,17 +78,7 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        //TODO: Restart Level
-        /*
-            if (Input.GetKeyDown(R))
-            {
-                SceneManager.LoadScene(name of this scene);
-            }
-        */
-        
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("Pressed R");
-   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ToNextLevel()
