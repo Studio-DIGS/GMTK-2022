@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoinPhysics : MonoBehaviour
 {
+    public ParticleSystem particles;
     public Rigidbody _rb;
     public float angularDrag = 35f;
     [SerializeField] AudioSource coinBounceSFX;
@@ -17,6 +18,7 @@ public class CoinPhysics : MonoBehaviour
         if (other.gameObject != GameObject.FindWithTag("Player"))
         {
             coinBounceSFX.Play();
+            particles.Play();
         }
     }
 }
