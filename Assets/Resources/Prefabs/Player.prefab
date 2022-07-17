@@ -92,7 +92,7 @@ MonoBehaviour:
   airAcceleration: 7
   terminalVelocity: 45
   initialChargeScale: 1
-  initialForce: 150
+  initialForce: 300
   maxChargeTime: 1.5
   maxChargeScale: 2.5
   maxMouseMagnitude: 5
