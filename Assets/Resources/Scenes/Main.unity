@@ -1219,14 +1219,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 899399708390876873, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 2099210274}
-    - target: {fileID: 899399708390876873, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
-      propertyPath: dustTrail
-      value: 
-      objectReference: {fileID: 1636285295}
     - target: {fileID: 899399708390876879, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1374,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
       propertyPath: m_Name
-      value: GamblerMAchine
+      value: GamblerMachine
       objectReference: {fileID: 0}
     - target: {fileID: 8280583433300697219, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1487,8 +1479,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2099210274 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3317147555713565732, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
-  m_PrefabInstance: {fileID: 1828851547}
-  m_PrefabAsset: {fileID: 0}
