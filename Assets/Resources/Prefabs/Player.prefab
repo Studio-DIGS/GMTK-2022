@@ -223,15 +223,16 @@ MonoBehaviour:
   groundAcceleration: 6
   airAcceleration: 7
   terminalVelocity: 30
-  initialChargeScale: 1
-  initialForce: 250
-  maxChargeTime: 1.5
-  maxChargeScale: 2.5
+  initialChargeScale: 0.5
+  initialForce: 200
+  maxChargeTime: 2.5
+  maxChargeScale: 3
   maxMouseMagnitude: 5
   coinPrefab: {fileID: 0}
   hasCoin: 1
   chargeScale: 1
   dustTrail: {fileID: 6434788442572820057}
+  isDustTrailPlaying: 0
 --- !u!114 &4412793925484398476
 MonoBehaviour:
   m_ObjectHideFlags: 0
