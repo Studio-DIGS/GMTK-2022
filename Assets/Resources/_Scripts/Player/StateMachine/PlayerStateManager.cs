@@ -157,7 +157,6 @@ public class PlayerStateManager : MonoBehaviour
             Vector3 displacement = new Vector3(0, 1, Mathf.Sign(mouseToPlayer.z));
             GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
             Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
-            // coin.GetComponent<CoinPhysics>().Setup(shootDirection, (1/maxChargeScale) * chargeScale);
             coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
         } 
         else

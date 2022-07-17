@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     private string nextScene;
+
+    private string mainMenu = "MainMenu";
 
     public void CheckForLevelCompleted()
     {
@@ -25,13 +27,19 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Going To: " + nextScene);
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
 
     }
 
-    private void ToNextLevel()
+    public void ToNextLevel()
     {
-        
+        Debug.Log("Going To: " + nextScene);
+    }
+
+    public void ToMainMenu()
+    {
+        Debug.Log("Going To: " + mainMenu);
+        SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
     }
 }
