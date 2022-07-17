@@ -5,6 +5,7 @@ using UnityEngine;
 public class Wire : MonoBehaviour
 {
     //Wire Vars
+    [SerializeField] AudioSource wireCutSFX;
     private LevelManager levelManager;
     private Material hitWireMaterial;
 
@@ -27,7 +28,10 @@ public class Wire : MonoBehaviour
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
             this.GetComponent<MeshRenderer>().material = hitWireMaterial;
+
             hasBeenHit = true;
+            wireCutSFX.Play();
+
             levelManager.CheckForLevelCompleted();
         }
     }

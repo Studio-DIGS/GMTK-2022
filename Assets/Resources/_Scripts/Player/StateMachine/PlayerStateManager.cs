@@ -7,6 +7,7 @@ public class PlayerStateManager : MonoBehaviour
     //Player Components
     public Camera playerCamera;
     public Animator animator;
+    public AudioSource getCoinSFX;
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
@@ -185,6 +186,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void GetCoin(GameObject coin)
     {
+        getCoinSFX.Play();
         Destroy(coin);
     }
 
