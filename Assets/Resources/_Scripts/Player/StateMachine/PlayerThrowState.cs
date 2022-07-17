@@ -22,7 +22,6 @@ public class PlayerThrowState : PlayerBaseState
     public override void UpdateState(PlayerStateManager _player)
     {
 
-
     }
 
     public override void LateUpdateState(PlayerStateManager _player)

@@ -32,8 +32,7 @@ public class PlayerMoveState : PlayerBaseState
         {
             _player.SwitchState(_player.JumpState);
         }
-        if (Input.GetButtonDown("Fire1") &&
-            _player.controller.isGrounded &&
+        if (Input.GetButtonDown("Fire1")  &&
             _player.hasCoin)
         {
             _player.SwitchState(_player.ChargeState);
