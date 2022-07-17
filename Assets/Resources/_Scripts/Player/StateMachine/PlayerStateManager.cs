@@ -187,7 +187,7 @@ public class PlayerStateManager : MonoBehaviour
         {
             Vector3 mouseToPlayer = (playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, playerCamera.transform.position.x))
                                         - transform.position);
-            mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
+            //mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
             if (mouseToPlayer.magnitude >= maxMouseMagnitude)
             {
                 mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;

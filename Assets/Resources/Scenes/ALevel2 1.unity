@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44600862, g: 0.4957646, b: 0.5744546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17985731, g: 0.22519712, b: 0.30664524, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1046,8 +1046,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
       propertyPath: nextScene
-      value: Level2
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
+      propertyPath: gameplayMusic
+      value: 
+      objectReference: {fileID: 520789332}
     - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
       propertyPath: levelCompleted
       value: 

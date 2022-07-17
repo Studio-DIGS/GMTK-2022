@@ -16,12 +16,24 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private int nextScene = 1;
 
+    [SerializeField] AudioSource gameplayMusic;
+    private PlayerVolume playerVolume;
+
     private string mainMenu = "MainMenu";
     private object elseif;
 
     public static event Action<int> StopSlot;
     public static event Action BeatLevel;
 
+    private void Awake() 
+    {
+        playerVolume = GameObject.Find("PlayerSettings").GetComponent<PlayerVolume>();
+    }
+
+    private void Start() 
+    {
+        gameplayMusic.volume = playerVolume.volumePercent;
+    }
 
     public void CheckForLevelCompleted()
     {

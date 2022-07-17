@@ -1159,8 +1159,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
       propertyPath: nextScene
-      value: JucLevel3
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
+      propertyPath: gameplayMusic
+      value: 
+      objectReference: {fileID: 520789332}
     - target: {fileID: 1089301483685622909, guid: 8bff536ec95115543a0f34a3365d3b38, type: 3}
       propertyPath: levelCompleted
       value: 
