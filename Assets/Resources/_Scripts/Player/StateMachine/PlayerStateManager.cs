@@ -157,6 +157,8 @@ public class PlayerStateManager : MonoBehaviour
                 verticalMovement = jumpHeight;
                 playerAcceleration = airAcceleration;
             }
+        if (Input.GetKeyUp(KeyCode.R));
+            Debug.Log("Pressed R");
         }        
     }
 

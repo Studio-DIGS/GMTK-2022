@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     private string nextScene;
 
     private string mainMenu = "MainMenu";
+    private object elseif;
 
     public void CheckForLevelCompleted()
     {
@@ -26,6 +27,13 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Level Completed!");
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            {
+            RestartLevel(); 
+            } 
+    }
     public void RestartLevel()
     {
         //TODO: Restart Level
@@ -35,6 +43,10 @@ public class LevelManager : MonoBehaviour
                 SceneManager.LoadScene(name of this scene);
             }
         */
+        
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("Pressed R");
+   
     }
 
     public void ToNextLevel()
