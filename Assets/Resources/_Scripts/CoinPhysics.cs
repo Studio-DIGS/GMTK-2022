@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinPhysics : MonoBehaviour
 {
     public Rigidbody _rb;
-    public float angularDrag;
+    public float angularDrag = 35f;
 
     void Start()
     {
