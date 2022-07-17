@@ -119,11 +119,14 @@ public class PlayerStateManager : MonoBehaviour
 
         direction = (transform.forward * horizontalInput);
 
-        if(horizontalInput == -1 && facingRight) {
+        if(horizontalInput < 0 && facingRight) {
             FlipPlayer();
         }
-        if(horizontalInput == 1 && !facingRight) {
+        else if(horizontalInput > 0 && !facingRight) {
             FlipPlayer();
+        }
+        else if(horizontalInput == 0) {
+            DestroyDustTrail();
         }
 
         horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
