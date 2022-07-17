@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147659446556431173}
   - component: {fileID: 1461731550040166949}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GetCoinSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 899399708390876876}
   - component: {fileID: 899399708390876873}
   - component: {fileID: 4412793925484398476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -215,6 +215,7 @@ MonoBehaviour:
   animator: {fileID: 3051270643712802910}
   getCoinSFX: {fileID: 1461731550040166949}
   controller: {fileID: 0}
+  coin: {fileID: 0}
   drawTrajectory: {fileID: 0}
   sprite: {fileID: 3317147555713565732}
   maxSpeed: 12
@@ -257,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062352290502356239}
   - component: {fileID: 3284011051729854343}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,7 @@ GameObject:
   - component: {fileID: 3637738374252106574}
   - component: {fileID: 7103422546698969465}
   - component: {fileID: 6761905792902522217}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +474,7 @@ GameObject:
   - component: {fileID: 3164087814024939377}
   - component: {fileID: 3317147555713565732}
   - component: {fileID: 3051270643712802910}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +579,7 @@ GameObject:
   - component: {fileID: 7196093850071530064}
   - component: {fileID: 6434788442572820057}
   - component: {fileID: 5930528846914599155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DustTrailParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

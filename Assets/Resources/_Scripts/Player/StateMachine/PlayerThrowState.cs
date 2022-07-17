@@ -10,16 +10,19 @@ public class PlayerThrowState : PlayerBaseState
         //Debug.Log("Throw State Entered");
         _player.animator.SetBool("isThrowing", true);
         _player.drawTrajectory.HideLine();
+
+        if(_player.hasCoin)
+        {
+            _player.FireCoin();
+        }
+
         return;
     }
 
     public override void UpdateState(PlayerStateManager _player)
     {
-        if(_player.hasCoin)
-        {
-            _player.FireCoin();
-        }
-        _player.hasCoin = false;
+
+
     }
 
     public override void LateUpdateState(PlayerStateManager _player)
@@ -38,5 +41,6 @@ public class PlayerThrowState : PlayerBaseState
     public override void ExitState(PlayerStateManager _player)
     {
         _player.animator.SetBool("isThrowing", false);
+        _player.hasCoin = false;
     }
 }
