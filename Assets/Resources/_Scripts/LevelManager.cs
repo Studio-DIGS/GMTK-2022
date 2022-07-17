@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
     private PlayerVolume playerVolume;
 
     private string mainMenu = "MainMenu";
+    private string victoryScreen = "WinScreen";
     private object elseif;
 
     public static event Action<int> StopSlot;
@@ -28,7 +29,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake() 
     {
-        playerVolume = GameObject.Find("PlayerSettings").GetComponent<PlayerVolume>();
+        playerVolume = GameObject.FindWithTag("Settings").GetComponent<PlayerVolume>();
+        gameplayMusic = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
     }
 
     private void Start() 
@@ -55,7 +57,7 @@ public class LevelManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             {
-            RestartLevel(); 
+                RestartLevel(); 
             } 
     }
 
@@ -78,17 +80,7 @@ public class LevelManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        //TODO: Restart Level
-        /*
-            if (Input.GetKeyDown(R))
-            {
-                SceneManager.LoadScene(name of this scene);
-            }
-        */
-        
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            Debug.Log("Pressed R");
-   
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ToNextLevel()
@@ -102,5 +94,9 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Going To: " + mainMenu);
         SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
+    }
+    public void ToWinScreen()
+    {
+        SceneManager.LoadScene(victoryScreen, LoadSceneMode.Single);
     }
 }

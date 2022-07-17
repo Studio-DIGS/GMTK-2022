@@ -1542,6 +1542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 742351405}
     m_Modifications:
+    - target: {fileID: 2986903435887721803, guid: d92b1885ad30637458027ad08f374268, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToWinScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 2986903437791626282, guid: d92b1885ad30637458027ad08f374268, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
