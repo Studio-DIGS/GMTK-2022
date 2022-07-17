@@ -28,6 +28,11 @@ public class PlayerJumpState : PlayerBaseState
         {
             _player.SwitchState(_player.FallState);
         }
+        if (Input.GetButtonDown("Fire1")  &&
+            _player.hasCoin)
+        {
+            _player.SwitchState(_player.ChargeState);
+        }
     }
 
     public override void ExitState(PlayerStateManager _player)

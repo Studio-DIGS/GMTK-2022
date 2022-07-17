@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,11 +9,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<Wire> wires;
 
+    public int wiresCut;
+    [SerializeField]
+    private int value = 1000;
+
     [SerializeField]
     private string nextScene;
 
     private string mainMenu = "MainMenu";
     private object elseif;
+
+    public static event Action<int> StopSlot;
+    public static event Action BeatLevel;
+
 
     public void CheckForLevelCompleted()
     {
@@ -23,7 +32,9 @@ public class LevelManager : MonoBehaviour
                 return;
             }
         }
+        GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
         levelCompleted.SetActive(true);
+        TriggerBeatLevel();
         Debug.Log("Level Completed!");
     }
 
@@ -34,6 +45,24 @@ public class LevelManager : MonoBehaviour
             RestartLevel(); 
             } 
     }
+
+    public void TriggerStopSlot(int id)
+    {
+        if (StopSlot != null)
+        {
+            StopSlot(id);
+        }
+    }
+
+    public void TriggerBeatLevel()
+    {
+        if (BeatLevel != null)
+        {
+            BeatLevel();
+        }
+    }
+
+
     public void RestartLevel()
     {
         //TODO: Restart Level

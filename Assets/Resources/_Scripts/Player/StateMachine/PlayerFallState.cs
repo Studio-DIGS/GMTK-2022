@@ -23,6 +23,11 @@ public class PlayerFallState : PlayerBaseState
         {
             _player.SwitchState(_player.MoveState);
         }
+        if (Input.GetButtonDown("Fire1")  &&
+            _player.hasCoin)
+        {
+            _player.SwitchState(_player.ChargeState);
+        }
     }
 
     public override void ExitState(PlayerStateManager _player)

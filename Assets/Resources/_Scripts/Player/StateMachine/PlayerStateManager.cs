@@ -107,7 +107,7 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Debug.Log(score.GetPoints());
+        // Debug.Log(score.GetPoints());
         currentState.OnTriggerEnterState(this, other);
     }
 

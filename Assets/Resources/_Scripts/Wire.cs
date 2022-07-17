@@ -11,10 +11,6 @@ public class Wire : MonoBehaviour
     private LevelManager levelManager;
     private Material hitWireMaterial;
     public ParticleSystem electricParticles;
-
-    //Wire Properties
-    [SerializeField]
-    private int value = 1000;
     
     [HideInInspector]
     public bool hasBeenHit = false;
@@ -30,7 +26,6 @@ public class Wire : MonoBehaviour
     {
         if (other.gameObject.tag == "Coin" && !hasBeenHit)
         {
-            GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
             uncutWire.SetActive(false);
             cutWire.SetActive(true);
 
@@ -38,6 +33,8 @@ public class Wire : MonoBehaviour
             wireCutSFX.Play();
             electricParticles.Play();
 
+            levelManager.wiresCut += 1;
+            levelManager.TriggerStopSlot(levelManager.wiresCut);
             levelManager.CheckForLevelCompleted();
         }
     }
