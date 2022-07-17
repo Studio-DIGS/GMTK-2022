@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/Level 13.unity
     guid: 77056e228826aa246aadec96986a0e59
+  - enabled: 1
+    path: Assets/Resources/Scenes/OpeningCutscene.unity
+    guid: 69ae3cb6942933d4997c2f95a78225a3
   m_configObjects: {}
