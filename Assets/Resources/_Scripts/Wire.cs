@@ -35,6 +35,8 @@ public class Wire : MonoBehaviour
             hasBeenHit = true;
             wireCutSFX.Play();
 
+            levelManager.wiresCut += 1;
+            levelManager.TriggerStopSlot(levelManager.wiresCut);
             levelManager.CheckForLevelCompleted();
         }
     }

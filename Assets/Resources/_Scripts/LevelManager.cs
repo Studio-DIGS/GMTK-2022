@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,10 +9,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<Wire> wires;
 
+    public int wiresCut;
+
     [SerializeField]
     private string nextScene;
 
     private string mainMenu = "MainMenu";
+
+    public static event Action<int> StopSlot;
+
 
     public void CheckForLevelCompleted()
     {
@@ -24,6 +30,14 @@ public class LevelManager : MonoBehaviour
         }
         levelCompleted.SetActive(true);
         Debug.Log("Level Completed!");
+    }
+
+    public void TriggerStopSlot(int id)
+    {
+        if (StopSlot != null)
+        {
+            StopSlot(id);
+        }
     }
 
     public void RestartLevel()

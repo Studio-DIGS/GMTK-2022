@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Resources/Scenes/JucLevel2.unity
+    guid: 944e572fc9f9c3f4f89fd31b6320ba45
   m_configObjects: {}
