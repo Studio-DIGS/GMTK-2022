@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb5d8efb5486d74f84642ebe7545675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
+  lineRenderer: {fileID: 4544612385031001077, guid: 9ae238c565a76674a8e58923cff0be5b, type: 3}
   lineSegmentCount: 20
 --- !u!1 &3394356191324201238
 GameObject:
