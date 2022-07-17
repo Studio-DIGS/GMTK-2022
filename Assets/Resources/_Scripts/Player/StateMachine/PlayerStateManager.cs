@@ -26,6 +26,10 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerChargeState ChargeState = new PlayerChargeState();
     public PlayerThrowState ThrowState = new PlayerThrowState();
 
+    //Camera Bounds
+    private float leftBound = -4.75f;
+    private float rightBound = 3.25f;
+
     //Player Movement Stats
     public float maxSpeed = 18f;
     public float jumpHeight = 30f;
@@ -139,6 +143,16 @@ public class PlayerStateManager : MonoBehaviour
         
         playerVelocity = new Vector3(0, verticalMovement, horizontalMovement.z);
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if(this.transform.position.z < leftBound)
+        {
+            playerCamera.transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y, leftBound);
+        }
+        else if(this.transform.position.z > rightBound)
+        {
+            playerCamera.transform.position = new Vector3(playerCamera.transform.position.x, playerCamera.transform.position.y, rightBound);
+        }
+
         return;
     }
 
