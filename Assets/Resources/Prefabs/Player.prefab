@@ -217,12 +217,12 @@ MonoBehaviour:
   controller: {fileID: 0}
   drawTrajectory: {fileID: 0}
   sprite: {fileID: 3317147555713565732}
-  maxSpeed: 18
-  jumpHeight: 30
-  gravity: 1.5
-  groundAcceleration: 10
+  maxSpeed: 12
+  jumpHeight: 20
+  gravity: 1.25
+  groundAcceleration: 6
   airAcceleration: 7
-  terminalVelocity: 45
+  terminalVelocity: 30
   initialChargeScale: 1
   initialForce: 300
   maxChargeTime: 1.5

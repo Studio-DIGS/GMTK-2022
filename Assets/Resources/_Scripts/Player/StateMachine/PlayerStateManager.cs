@@ -10,6 +10,7 @@ public class PlayerStateManager : MonoBehaviour
     public AudioSource getCoinSFX;
     [HideInInspector]
     public CharacterController controller;
+    [HideInInspector]
     public DrawTrajectory drawTrajectory;
     public SpriteRenderer sprite;
     public Score score = new Score();
@@ -176,7 +177,7 @@ public class PlayerStateManager : MonoBehaviour
             mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;
             }
 
-            Vector3 displacement = new Vector3(0, 1f, Mathf.Sign(mouseToPlayer.z));
+            Vector3 displacement = new Vector3(0, 0.5f, Mathf.Sign(mouseToPlayer.z) * 0.75f);
             GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
             Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
             coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
