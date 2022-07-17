@@ -5,6 +5,9 @@ using UnityEngine;
 public class Wire : MonoBehaviour
 {
     //Wire Vars
+    [SerializeField] AudioSource wireCutSFX;
+    [SerializeField] GameObject uncutWire;
+    [SerializeField] GameObject cutWire;
     private LevelManager levelManager;
     private Material hitWireMaterial;
 
@@ -26,8 +29,12 @@ public class Wire : MonoBehaviour
         if (other.gameObject.tag == "Coin" && !hasBeenHit)
         {
             GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
-            this.GetComponent<MeshRenderer>().material = hitWireMaterial;
+            uncutWire.SetActive(false);
+            cutWire.SetActive(true);
+
             hasBeenHit = true;
+            wireCutSFX.Play();
+
             levelManager.CheckForLevelCompleted();
         }
     }
