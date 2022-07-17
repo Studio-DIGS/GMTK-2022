@@ -6,21 +6,20 @@ using TMPro;
 public class DisplayScore : MonoBehaviour
 {
     TMP_Text text;
-    PlayerStateManager player;
+    public FloatSO playerScore;
     
     private void Awake() 
     {
         text = GetComponent<TMP_Text>();
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>();
     }
     private void Start()
     {
         LevelManager.BeatLevel += DisplayPoints;
-        text.SetText("$ " + player.score.GetPoints());
+        text.SetText("$ " + playerScore.Value);
     }
 
     private void DisplayPoints()
     {
-        text.SetText("$ " + player.score.GetPoints());
+        text.SetText("$ " + playerScore.Value);
     }
 }

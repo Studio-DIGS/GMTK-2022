@@ -47,4 +47,8 @@ MonoBehaviour:
   levelCompleted: {fileID: 0}
   wires:
   - {fileID: 0}
-  nextScene: Level2
+  wiresCut: 0
+  value: 1000
+  playerScore: {fileID: 11400000, guid: 850c68bfb22502b4283cb8194bc5c4fa, type: 2}
+  nextScene: 0
+  gameplayMusic: {fileID: 0}

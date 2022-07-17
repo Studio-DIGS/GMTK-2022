@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public int wiresCut;
     [SerializeField]
     private int value = 1000;
+    public FloatSO playerScore;
 
     [SerializeField]
     private int nextScene = 1;
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour
                 return;
             }
         }
-        GameObject.FindWithTag("Player").GetComponent<PlayerStateManager>().score.AddPoints(value);
+        playerScore.Value += value;
         levelCompleted.SetActive(true);
         TriggerBeatLevel();
         Debug.Log("Level Completed!");
