@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     private int value = 1000;
 
     [SerializeField]
-    private string nextScene;
+    private int nextScene = 1;
 
     private string mainMenu = "MainMenu";
     private object elseif;
@@ -81,6 +81,8 @@ public class LevelManager : MonoBehaviour
     public void ToNextLevel()
     {
         Debug.Log("Going To: " + nextScene);
+        nextScene =SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextScene);
     }
 
     public void ToMainMenu()

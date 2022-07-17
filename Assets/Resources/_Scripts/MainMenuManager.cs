@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] string firstLevelName = "Level1";
+    [SerializeField] string firstLevelName;
 
     public void ToFirstLevel()
     {

@@ -1811,6 +1811,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamblerMachine
       objectReference: {fileID: 0}
+    - target: {fileID: 6944656104360116776, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8280583433300697219, guid: 166e950e586c8fe43ae949b7f41c981d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.02382
