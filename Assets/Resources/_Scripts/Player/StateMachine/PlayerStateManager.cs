@@ -60,12 +60,15 @@ public class PlayerStateManager : MonoBehaviour
 
     // Player Particles
     public ParticleSystem dustTrail;
+    public bool isDustTrailPlaying;
     public void CreateDustTrail()
     {
+        isDustTrailPlaying = true;
         dustTrail.Play();
     }
     public void DestroyDustTrail()
     {
+        isDustTrailPlaying = false;
         dustTrail.Stop();
     }
 

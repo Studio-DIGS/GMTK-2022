@@ -223,15 +223,16 @@ MonoBehaviour:
   groundAcceleration: 6
   airAcceleration: 7
   terminalVelocity: 30
-  initialChargeScale: 1
-  initialForce: 300
-  maxChargeTime: 1.5
-  maxChargeScale: 2.5
+  initialChargeScale: 0.5
+  initialForce: 200
+  maxChargeTime: 2.5
+  maxChargeScale: 3
   maxMouseMagnitude: 5
   coinPrefab: {fileID: 0}
   hasCoin: 1
   chargeScale: 1
   dustTrail: {fileID: 6434788442572820057}
+  isDustTrailPlaying: 0
 --- !u!114 &4412793925484398476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7134772772310786537}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 3, z: 0}
+  m_LocalPosition: {x: 7.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
