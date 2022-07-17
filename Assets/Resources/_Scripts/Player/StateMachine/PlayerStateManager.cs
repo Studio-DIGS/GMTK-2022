@@ -47,7 +47,7 @@ public class PlayerStateManager : MonoBehaviour
     public float initialForce = 150f;
     public float maxChargeTime = 1.5f;
     public float maxChargeScale = 2.5f;
-    public float maxMouseMagnitude = 5f;
+    public float maxMouseMagnitude = 5.0f;
     
     //Player Throw Vars
     [HideInInspector]
@@ -176,7 +176,7 @@ public class PlayerStateManager : MonoBehaviour
             mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;
             }
 
-            Vector3 displacement = new Vector3(0, 1, Mathf.Sign(mouseToPlayer.z));
+            Vector3 displacement = new Vector3(0, 1f, Mathf.Sign(mouseToPlayer.z));
             GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
             Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
             coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);

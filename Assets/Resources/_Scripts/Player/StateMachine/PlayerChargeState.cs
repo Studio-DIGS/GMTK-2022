@@ -27,6 +27,8 @@ public class PlayerChargeState : PlayerBaseState
         Vector3 mouseToPlayer = (_player.playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _player.playerCamera.transform.position.x))
                                  - _player.transform.position);
         mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, _player.maxMouseMagnitude);
+        mouseToPlayer.x = 0f;
+        Debug.Log(mouseToPlayer);
         if (mouseToPlayer.magnitude >= _player.maxMouseMagnitude)
         {
             mouseToPlayer *= _player.maxMouseMagnitude / mouseToPlayer.magnitude;
@@ -36,9 +38,9 @@ public class PlayerChargeState : PlayerBaseState
         _player.chargeScale = Mathf.Lerp(_player.initialChargeScale, _player.maxChargeScale, Mathf.Clamp(currentChargeTime, 0.0f, _player.maxChargeTime));
 
         Vector3 expectedForce = new Vector3(0, (1/_player.maxChargeScale) * _player.chargeScale * mouseToPlayer.y, mouseToPlayer.z) * _player.initialForce;
-        Vector3 expectedDisplacement = new Vector3(0, 1, Mathf.Sign(mouseToPlayer.z));
+        Vector3 expectedDisplacement = new Vector3(0, 1f, Mathf.Sign(mouseToPlayer.z));
 
-        _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), _player.transform.position + expectedDisplacement);
+        _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), expectedDisplacement);
 
     }
 

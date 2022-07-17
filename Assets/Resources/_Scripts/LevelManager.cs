@@ -24,12 +24,17 @@ public class LevelManager : MonoBehaviour
         }
         levelCompleted.SetActive(true);
         Debug.Log("Level Completed!");
-        Debug.Log("Going To: " + nextScene);
     }
 
     public void RestartLevel()
     {
-
+        //TODO: Restart Level
+        /*
+            if (Input.GetKeyDown(R))
+            {
+                SceneManager.LoadScene(name of this scene);
+            }
+        */
     }
 
     public void ToNextLevel()
