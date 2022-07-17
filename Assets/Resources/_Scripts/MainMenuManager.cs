@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] string firstLevelName;
+    [SerializeField] string cutsceneName;
     [SerializeField] AudioSource backgroundMusic;
     private PlayerVolume playerVolume;
 
@@ -19,9 +19,9 @@ public class MainMenuManager : MonoBehaviour
         backgroundMusic.volume = playerVolume.volumePercent;
     }
 
-    public void ToFirstLevel()
+    public void Cutscene()
     {
-        SceneManager.LoadScene(firstLevelName);
+        SceneManager.LoadScene(cutsceneName);
     }
     public void ChangeVolume(float _volume)
     {
