@@ -27,7 +27,8 @@ public class LevelManager : MonoBehaviour
 
     private void Awake() 
     {
-        playerVolume = GameObject.Find("PlayerSettings").GetComponent<PlayerVolume>();
+        playerVolume = GameObject.FindWithTag("Settings").GetComponent<PlayerVolume>();
+        gameplayMusic = GameObject.FindWithTag("Music").GetComponent<AudioSource>();
     }
 
     private void Start() 
