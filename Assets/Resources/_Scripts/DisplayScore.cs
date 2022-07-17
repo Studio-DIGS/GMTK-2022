@@ -15,6 +15,12 @@ public class DisplayScore : MonoBehaviour
     }
     private void Start()
     {
+        LevelManager.BeatLevel += DisplayPoints;
+        text.SetText("$ " + player.score.GetPoints());
+    }
+
+    private void DisplayPoints()
+    {
         text.SetText("$ " + player.score.GetPoints());
     }
 }
