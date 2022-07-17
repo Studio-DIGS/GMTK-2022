@@ -12,6 +12,11 @@ public class MainMenuManager : MonoBehaviour
     private void Awake() 
     {
         playerVolume = GameObject.Find("PlayerSettings").GetComponent<PlayerVolume>();
+        GameObject[] musicObj = GameObject.FindGameObjectsWithTag("Music");
+        foreach (GameObject obj in musicObj)
+        {
+            Destroy(obj);
+        }
     }
     
     private void Start() 

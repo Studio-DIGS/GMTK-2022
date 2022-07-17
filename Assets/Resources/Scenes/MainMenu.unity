@@ -793,7 +793,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1750777042}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: ToFirstLevel
+        m_MethodName: Cutscene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e8d945d57a58a48b0ebb764ad444a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevelName: Level 1
+  cutsceneName: OpeningCutscene
   backgroundMusic: {fileID: 1807007111}
 --- !u!4 &1750777043
 Transform:
@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 1807007111}
   m_Layer: 0
   m_Name: MenuBGM
-  m_TagString: Untagged
+  m_TagString: MenuMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1187,7 +1187,7 @@ GameObject:
   - component: {fileID: 2091438411}
   m_Layer: 0
   m_Name: PlayerSettings
-  m_TagString: Untagged
+  m_TagString: Settings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
