@@ -1332,6 +1332,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 899399708390876873, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
+      propertyPath: leftBound
+      value: -5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 899399708390876873, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
+      propertyPath: rightBound
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 899399708390876873, guid: a973b20ae81e8894095676d8d06d06a4, type: 3}
       propertyPath: initialForce
       value: 250
       objectReference: {fileID: 0}
