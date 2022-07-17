@@ -10,6 +10,7 @@ public class Wire : MonoBehaviour
     [SerializeField] GameObject cutWire;
     private LevelManager levelManager;
     private Material hitWireMaterial;
+    public ParticleSystem electricParticles;
 
     //Wire Properties
     [SerializeField]
@@ -22,6 +23,7 @@ public class Wire : MonoBehaviour
     {
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
         hitWireMaterial = (Material) Resources.Load("Materials/TestHitWireMaterial");
+        electricParticles.Stop();
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -34,6 +36,7 @@ public class Wire : MonoBehaviour
 
             hasBeenHit = true;
             wireCutSFX.Play();
+            electricParticles.Play();
 
             levelManager.wiresCut += 1;
             levelManager.TriggerStopSlot(levelManager.wiresCut);
