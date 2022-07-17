@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject levelCompleted;
     [SerializeField]
     private List<Wire> wires;
 
@@ -19,7 +20,18 @@ public class LevelManager : MonoBehaviour
                 return;
             }
         }
+        levelCompleted.SetActive(true);
         Debug.Log("Level Completed!");
         Debug.Log("Going To: " + nextScene);
+    }
+
+    private void RestartLevel()
+    {
+
+    }
+
+    private void ToNextLevel()
+    {
+        
     }
 }
