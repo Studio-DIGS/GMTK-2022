@@ -20,13 +20,16 @@ public class CoinSpin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spinSpeed = modifier * _rb.velocity.z;
-        transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
-
-        if (_rb.velocity.magnitude < 1f)
+        if (_rb.isKinematic == false)
         {
-            xEnd += stopSpeed * Time.deltaTime;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(-90,-90,0), xEnd);
+            spinSpeed = modifier * _rb.velocity.z;
+            transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
+
+            if (_rb.velocity.magnitude < 1f)
+            {
+                xEnd += stopSpeed * Time.deltaTime;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(-90,-90,0), xEnd);
+            }
         }
     }
 }

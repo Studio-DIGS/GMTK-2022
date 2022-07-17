@@ -14,6 +14,8 @@ public class PlayerChargeState : PlayerBaseState
         currentChargeTime = 0.0f;
         _player.drawTrajectory.ShowLine();
 
+        _player.HoldCoin();
+
         return;
     }
 
@@ -22,6 +24,7 @@ public class PlayerChargeState : PlayerBaseState
         if (_player.controller.velocity != Vector3.zero)
         {
             _player.UpdateMovement(false);
+            _player.UpdateCoinPosition();
         }
         
         Vector3 mouseToPlayer = (_player.playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _player.playerCamera.transform.position.x))
@@ -40,7 +43,6 @@ public class PlayerChargeState : PlayerBaseState
         Vector3 expectedDisplacement = new Vector3(0, 0.5f, Mathf.Sign(mouseToPlayer.z) * 0.5f);
 
         _player.drawTrajectory.UpdateTrajectory(expectedForce, _player.coinPrefab.GetComponent<Rigidbody>(), expectedDisplacement);
-
     }
 
     public override void LateUpdateState(PlayerStateManager _player)

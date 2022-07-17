@@ -10,6 +10,7 @@ public class PlayerStateManager : MonoBehaviour
     public AudioSource getCoinSFX;
     [HideInInspector]
     public CharacterController controller;
+    public GameObject coin;
     [HideInInspector]
     public DrawTrajectory drawTrajectory;
     public SpriteRenderer sprite;
@@ -168,10 +169,40 @@ public class PlayerStateManager : MonoBehaviour
         facingRight = !facingRight;
     }
 
+    public void HoldCoin()
+    {
+        if (coinPrefab != null) 
+        {
+            coin = (GameObject) Instantiate(coinPrefab, this.transform.position, coinPrefab.transform.rotation);
+        }
+        else
+        {
+            Debug.LogError("Coin Not Instantiated");
+        }   
+    }
+
+    public void UpdateCoinPosition()
+    {
+        if (coinPrefab != null)
+        {
+            Vector3 mouseToPlayer = (playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, playerCamera.transform.position.x))
+                                        - transform.position);
+            mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
+            if (mouseToPlayer.magnitude >= maxMouseMagnitude)
+            {
+                mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;
+            }
+            Vector3 displacement = new Vector3(0, 0, Mathf.Sign(mouseToPlayer.z) * -0.4f);
+            coin.transform.position = this.transform.position + displacement;
+        }
+        else{Debug.LogError("Coin Not Instantiated");}
+    }
+
     public void FireCoin()
     {
         if (coinPrefab != null)
         {
+            // StartCoroutine(AbleToPickUpCoin());
             Vector3 mouseToPlayer = (playerCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, playerCamera.transform.position.x))
                                     - transform.position);
             mouseToPlayer.y = Mathf.Clamp(mouseToPlayer.y, 0f, 5f);
@@ -180,16 +211,24 @@ public class PlayerStateManager : MonoBehaviour
             mouseToPlayer *= maxMouseMagnitude / mouseToPlayer.magnitude;
             }
 
-            Vector3 displacement = new Vector3(0, 0.5f, Mathf.Sign(mouseToPlayer.z) * 0.75f);
-            GameObject coin = (GameObject) Instantiate(coinPrefab, this.transform.position + displacement, coinPrefab.transform.rotation);
+            Rigidbody _rb = coin.GetComponent<Rigidbody>();
+            _rb.isKinematic = false;
+
             Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
-            coin.GetComponent<Rigidbody>().AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
+            _rb.AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
         } 
         else
         {
             Debug.LogError("Coin Not Instantiated");
         }
     }
+
+    // IEnumerator AbleToPickUpCoin()
+    // {
+    //     yield return new WaitForSeconds(2);
+    //     hasCoin = false;
+    //     Debug.Log(hasCoin);
+    // }
 
     public void GetCoin(GameObject coin)
     {

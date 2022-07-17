@@ -11,6 +11,7 @@ public class CoinPhysics : MonoBehaviour
     void Start()
     {
         _rb.angularDrag = angularDrag;
+        // _rb.isKinematic = true;
     }
     private void OnCollisionEnter(Collision other) 
     {

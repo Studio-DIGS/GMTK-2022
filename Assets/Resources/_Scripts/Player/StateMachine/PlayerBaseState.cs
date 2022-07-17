@@ -9,7 +9,7 @@ public abstract class PlayerBaseState
 
     public void OnTriggerEnterState(PlayerStateManager _player, Collider other)
     {
-        if (other.gameObject.CompareTag(_player.coinPrefab.tag))
+        if (other.gameObject.CompareTag(_player.coinPrefab.tag) && _player.hasCoin == false)
         {
             _player.hasCoin = true;
             _player.GetCoin(other.transform.parent.gameObject);
