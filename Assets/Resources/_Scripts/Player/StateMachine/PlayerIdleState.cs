@@ -25,6 +25,7 @@ public class PlayerIdleState : PlayerBaseState
         
         if (Input.GetAxisRaw("Horizontal") != 0f || Input.GetButton("Jump"))
         {
+            _player.CreateDustTrail();
             _player.SwitchState(_player.MoveState);
         }
     }
