@@ -10,6 +10,7 @@ public class PlayerStateManager : MonoBehaviour
     [HideInInspector]
     public CharacterController controller;
     public DrawTrajectory drawTrajectory;
+    public SpriteRenderer sprite;
     public Score score = new Score();
 
     //Player States
@@ -38,6 +39,7 @@ public class PlayerStateManager : MonoBehaviour
     private Vector3 horizontalMovement;
     private Vector3 direction;
     private Vector3 playerVelocity;
+    private bool facingRight = false;
 
     //Player Throw Stats
     public float initialChargeScale = 1f;
@@ -116,6 +118,13 @@ public class PlayerStateManager : MonoBehaviour
 
         direction = (transform.forward * horizontalInput);
 
+        if(horizontalInput == -1 && facingRight) {
+            FlipPlayer();
+        }
+        if(horizontalInput == 1 && !facingRight) {
+            FlipPlayer();
+        }
+
         horizontalMovement = Vector3.Lerp(horizontalMovement, direction * maxSpeed, playerAcceleration * Time.deltaTime);
         verticalMovement = Mathf.Lerp(verticalMovement, -1 * terminalVelocity, gravity * Time.deltaTime);
         
@@ -140,6 +149,15 @@ public class PlayerStateManager : MonoBehaviour
                 playerAcceleration = airAcceleration;
             }
         }        
+    }
+
+    private void FlipPlayer()
+    {
+        Vector3 currScale = sprite.transform.localScale;
+        currScale.x *= -1;
+        sprite.transform.localScale = currScale;
+
+        facingRight = !facingRight;
     }
 
     public void FireCoin()
