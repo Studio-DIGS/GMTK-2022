@@ -7,12 +7,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Swirl_1
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ValidKeywords:
-  - _SPECULARHIGHLIGHTS_OFF
+  m_Name: Swirl_2B
+  m_Shader: {fileID: 4800000, guid: 7cd5de0b884b14f88ab763ef465e1799, type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _SEGMENTED_ON
+  - _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -43,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 74ce6592d1935d54298647e1028156a9, type: 3}
+        m_Texture: {fileID: 2800000, guid: b825b59cae0fd954f8a5d35e47e541a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -93,7 +93,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5024553, g: 0.4662691, b: 0.5849056, a: 1}
+    - _Color: {r: 0.5471698, g: 0.3794055, b: 0.45396745, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OtlColor: {r: 1, g: 0, b: 0.8495259, a: 1}
     - _ShnColor: {r: 0.12941176, g: 0.13996711, b: 0.5568628, a: 1}
