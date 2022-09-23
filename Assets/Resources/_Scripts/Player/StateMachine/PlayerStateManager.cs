@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
+
+    //Level Components
+    private LevelManager levelManager;
+    private Camera levelCamera;
+
     //Player Components
+    [HideInInspector]
+    public bool isZoomedOut = false;
     public Camera playerCamera;
     public Animator animator;
     public AudioSource getCoinSFX;
@@ -81,13 +88,14 @@ public class PlayerStateManager : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         drawTrajectory = GetComponent<DrawTrajectory>();
-        coinPrefab = (GameObject) Resources.Load("Prefabs/Coin");
+        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        levelCamera = GameObject.Find("LevelCamera").GetComponent<Camera>();
+        coinPrefab = levelManager.coinType;
     }
 
     void Start()
     {
         currentState = MoveState;
-
         currentState.EnterState(this);
         drawTrajectory.HideLine();
     }
@@ -95,6 +103,11 @@ public class PlayerStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+        
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwitchCamera();
+        }
     }
 
     private void LateUpdate() 
@@ -228,7 +241,7 @@ public class PlayerStateManager : MonoBehaviour
             Rigidbody _rb = coin.GetComponent<Rigidbody>();
             _rb.isKinematic = false;
 
-            Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
+            //Vector3 shootDirection = new Vector3(0, mouseToPlayer.y, mouseToPlayer.z).normalized;
             _rb.AddForce(new Vector3(0, (1/maxChargeScale) * chargeScale * mouseToPlayer.y, mouseToPlayer.z) * initialForce);
         } 
         else
@@ -248,6 +261,22 @@ public class PlayerStateManager : MonoBehaviour
     {
         getCoinSFX.Play();
         Destroy(coin);
+    }
+
+    private void SwitchCamera()
+    {
+        if (isZoomedOut)
+        {
+            playerCamera.gameObject.SetActive(true);
+            levelCamera.gameObject.SetActive(false);
+            isZoomedOut = false;
+        }
+        else
+        {
+            levelCamera.gameObject.SetActive(true);
+            playerCamera.gameObject.SetActive(false);
+            isZoomedOut = true;
+        }
     }
 
     //Getter Functions

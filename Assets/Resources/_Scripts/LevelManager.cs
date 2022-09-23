@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
     private string victoryScreen = "WinScreen";
     private object elseif;
 
+    public GameObject coinType;
+
     public static event Action<int> StopSlot;
     public static event Action BeatLevel;
 
