@@ -51,6 +51,6 @@ public class CutsceneManager : MonoBehaviour
 
     public void ToFirstLevel()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("pLevel 1");
     }
 }
