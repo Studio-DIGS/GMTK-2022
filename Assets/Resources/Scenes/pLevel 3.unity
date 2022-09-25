@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 3224b4e8a3a8fe94380d8bec69d64716, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2250,6 +2250,10 @@ PrefabInstance:
     - target: {fileID: 177087919161805164, guid: b22ef2463b5f13a40b8dbe176aac7e79, type: 3}
       propertyPath: m_Name
       value: Coincam
+      objectReference: {fileID: 0}
+    - target: {fileID: 177087919161805165, guid: b22ef2463b5f13a40b8dbe176aac7e79, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b22ef2463b5f13a40b8dbe176aac7e79, type: 3}
