@@ -157,7 +157,7 @@ RectTransform:
   m_Children:
   - {fileID: 328748773}
   m_Father: {fileID: 1182442690}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -277,6 +277,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!1 &141033151
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &141033154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +471,7 @@ Transform:
   - {fileID: 770302692}
   - {fileID: 141033152}
   m_Father: {fileID: 1182442690}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160906879
 GameObject:
@@ -530,6 +532,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &160906882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +762,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &278730842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1051,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &416042648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,6 +1205,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &514037497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,6 +1359,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &770302694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1607,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!1 &776332315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1667,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &776332318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,6 +1855,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 259433847}
+  - {fileID: 1677420850}
   - {fileID: 29246331}
   - {fileID: 150169195}
   m_Father: {fileID: 0}
@@ -1915,6 +1925,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &1185011891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2020,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185011888}
   m_CullTransparentMesh: 1
+--- !u!1 &1628525429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5661366962411809923, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+  m_PrefabInstance: {fileID: 1677420849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1677420849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1182442690}
+    m_Modifications:
+    - target: {fileID: 5661366962411809923, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_Name
+      value: Bars
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+--- !u!224 &1677420850 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5661366962411809924, guid: 633301bf8bb06b54a8d360b0037b30bd, type: 3}
+  m_PrefabInstance: {fileID: 1677420849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1677420851
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628525429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02cc4fdb33271de47bac76cd3eb2a89a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1750777041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,6 +2380,7 @@ MonoBehaviour:
   playerScore: {fileID: 0}
   nextScene: 1
   gameplayMusic: {fileID: 0}
+  coinType: {fileID: 0}
 --- !u!114 &1896105184
 MonoBehaviour:
   m_ObjectHideFlags: 0
