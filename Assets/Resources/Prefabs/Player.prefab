@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409931f49061d924782f7c5d6d5baba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isZoomedOut: 0
   playerCamera: {fileID: 7103422546698969465}
   animator: {fileID: 3051270643712802910}
   getCoinSFX: {fileID: 1461731550040166949}
